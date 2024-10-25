@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <style>
+        .active {
+            color: #FF6347; /* Warna ketika navbar aktif */
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo"><span>Anas</span>tasia</a>
+        <nav class="navbar">
+            <a href="#portfolio-section" class="nav-link active" id="portfolio-link">Portfolio</a>
+            <a href="#experience-section" class="nav-link" id="experience-link">Experience</a>
+            <a href="#projects-section" class="nav-link" id="projects-link">Projects</a>
+            <a href="#education-section" class="nav-link" id="education-link">Education</a> <!-- Education Link -->
+        </nav>
+        <a href="#contact-section" class="contact">Contact Me</a>
+    </header>
+
+    <!-- Section Portfolio -->
+    <section id="portfolio-section" class="home">
+        <div class="home-content">
+            <h3>Hi Guys!</h3>
+            <h1>It's <span>Anastasia Angela<br></span>I'm an Undergraduate student at Ganesha University Of Education</h1>
+            <p>I am an active student with the information systems study program. I enjoy learning new things and technology. My motto is "Dream big, work hard, and stay humble"</p>
+
+            <div class="btn-box">
+                <button class="btn-1" onclick="location.href='#contact-section'">Hire Me</button>
+                <button class="btn-2" onclick="downloadCV()">Download CV</button>
+            </div>
+        </div>
+
+        <div class="img-box">
+            <img src="angels.jpg" alt="Anastasia">
+        </div>
+    </section>
+
+    <!-- Section Projects -->
+    <section id="projects-section" class="projects">
+        <h2>My Projects</h2>
+        <div class="project">
+            <img src="projectangel.png" alt="Project">
+        </div>
+    </section>
+
+    <!-- Section About Me -->
+    <section id="about-section" class="about">
+        <div class="about-img">
+            <img src="angel.jpg" alt="Anastasia">
+        </div>
+        <div class="about-content">
+            <h2>About <span>Me</span></h2>
+            <h3>UX<span>Designer</span></h3>
+            <p>In addition, I have significant experience in editing and design, where I developed my technical skills and creativity. My involvement in design projects has provided me with valuable insights into how visual elements can impact user experience.</p>
+            <a href="#experience-section" class="btn-2">Experience</a>
+        </div>
+    </section>
+
+    <!-- Section Experience -->
+    <section id="experience-section" class="experience" style="text-align: center; padding-top: 100px;">
+        <h2 style="margin-bottom: 20px;">My <span>Experience</span></h2>
+        <div class="experience-content" style="display: flex; justify-content: center;">
+            <div class="experience-item">
+                <img src="experience.jpg" alt="Experience Image" class="experience-img" style="width: 50%; height: auto; display: block; margin: 0 auto;">
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Education -->
+    <section id="education-section" class="education">
+        <h2 class="education-title">My <span>Education</span></h2>
+        <div class="education-content">
+            <div class="education-text">
+                <p>Undergraduate Student of Information Systems<br>Ganesha University of Education</p>
+            </div>
+            <div class="education-img">
+                <img src="education.jpg" alt="My Education"> <!-- Education Image -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section id="contact-section" class="contact-form">
+        <h2 class="contact-me">Contact <span>Me</span></h2>
+        
+        <form action="#">
+            <div class="input-box">
+                <input type="text" placeholder="Full Name">
+                <input type="email" placeholder="Email">
+            </div> 
+
+            <div class="input-box">
+                <input type="number" placeholder="Phone Number">
+                <input type="text" placeholder="Subject">
+            </div> 
+
+            <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
+            <input type="submit" value="Send Message" class="btn-1">
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="social">
+            <a href="https://www.linkedin.com/in/anastasia-angela-196b762a4" target="_blank">
+                <i class='bx bxl-linkedin-square'></i>
+            </a>
+            <a href="https://www.instagram.com/anastasiangela_?igsh=d2xvYmxwODNhcHBv" target="_blank" rel="noopener noreferrer">
+                <i class='bx bxl-instagram-alt'></i>
+            </a>  
+        </div>
+    
+        <ul class="list">
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#about-section">About Me</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+        </ul>
+        
+        <p class="copyright">© 2024 Anastasia | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        function downloadCV() {
+            const link = document.createElement('a');
+            link.href = 'https://drive.google.com/uc?export=download&id=16MpsP511qN--PdWiAwS7Beef2-ysfkzY';
+            link.download = 'CV_Anastasia_Angela.pdf';
+            link.click();
+        }
+
+        // Function to add/remove active class based on scroll position
+        window.addEventListener('scroll', function() {
+            let sections = document.querySelectorAll('section');
+            let navLinks = document.querySelectorAll('.navbar a');
+            
+            sections.forEach(sec => {
+                let top = window.scrollY;
+                let offset = sec.offsetTop - 150; // Adjust this value for a smoother effect
+                let height = sec.offsetHeight;
+                let id = sec.getAttribute('id');
+
+                if (top >= offset && top < offset + height) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        document.querySelector('.navbar a[href*=' + id + ']').classList.add('active');
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
